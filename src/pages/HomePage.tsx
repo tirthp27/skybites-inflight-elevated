@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Phone, Star, Users, MapPin, Plane, Globe, Utensils } from "lucide-react";
 import heroImage from "@/assets/hero-aviation.jpg";
+import InteractiveGlobe from "@/components/InteractiveGlobe";
 
 const HomePage = () => {
   const destinationsData = {
@@ -131,6 +132,12 @@ const HomePage = () => {
             </p>
           </div>
 
+          {/* Interactive 3D Globe */}
+          <div className="mb-12 relative">
+            <InteractiveGlobe destinationsData={destinationsData} />
+          </div>
+
+          {/* Airport Lists Below Globe */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {Object.entries(destinationsData).map(([region, airports]) => (
               <div key={region} className="space-y-4">
