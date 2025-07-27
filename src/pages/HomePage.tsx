@@ -1,209 +1,364 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Plane, Clock, CheckCircle, Users, Utensils } from "lucide-react";
+import { ArrowRight, Phone, Star, Users, MapPin, Plane, Globe, Utensils } from "lucide-react";
 import heroImage from "@/assets/hero-aviation.jpg";
-import cateringImage from "@/assets/premium-catering.jpg";
 
 const HomePage = () => {
+  const destinationsData = {
+    "North America": [
+      { code: "KTEB", city: "Teterboro" },
+      { code: "KLAS", city: "Las Vegas" },
+      { code: "KDAL", city: "Dallas" },
+      { code: "KVNY", city: "Los Angeles" },
+      { code: "KHPN", city: "Westchester County" },
+      { code: "KIAD", city: "Washington" },
+      { code: "KPBI", city: "West Palm Beach" },
+      { code: "KHOU", city: "Houston" },
+      { code: "KMDW", city: "Chicago" },
+      { code: "CYYZ", city: "Toronto" },
+      { code: "KSDL", city: "Phoenix" },
+      { code: "KPDK", city: "Atlanta" },
+      { code: "KOPF", city: "Miami" },
+      { code: "KAPF", city: "Naples" },
+      { code: "KBNA", city: "Nashville" },
+      { code: "KAUS", city: "Austin" }
+    ],
+    "Europe": [
+      { code: "LFPB", city: "Paris" },
+      { code: "LFMN", city: "Nice" },
+      { code: "LSGG", city: "Geneva" },
+      { code: "EGLF", city: "London" },
+      { code: "LSZH", city: "Zurich" },
+      { code: "LIRA", city: "Rome" },
+      { code: "EDDM", city: "Munich" },
+      { code: "LIML", city: "Milan" },
+      { code: "LEMD", city: "Madrid" },
+      { code: "LEPA", city: "Palma de Mallorca" },
+      { code: "LEIB", city: "Ibiza" },
+      { code: "EHAM", city: "Amsterdam" },
+      { code: "LEBL", city: "Barcelona" },
+      { code: "LKPR", city: "Prague" },
+      { code: "LEMG", city: "Malaga" },
+      { code: "LGAV", city: "Athens" }
+    ],
+    "Islands": [
+      { code: "MYNN", city: "Bahamas Nassau" },
+      { code: "MBPV", city: "Providenciales" },
+      { code: "TJSJ", city: "San Juan" },
+      { code: "TNCM", city: "St Maarten" },
+      { code: "MYAM", city: "Marsh Harbour" },
+      { code: "TXKF", city: "Bermuda Hamilton" },
+      { code: "TBPB", city: "Barbados Bridgetown" },
+      { code: "TIST", city: "St Thomas" },
+      { code: "TCLK", city: "Larnaca" },
+      { code: "VRMM", city: "Maldives Hulule Island" },
+      { code: "FSIA", city: "Seychelles Mahe Island" }
+    ],
+    "Middle East": [
+      { code: "LTBA", city: "Istanbul" },
+      { code: "OERK", city: "Riyadh" },
+      { code: "VHHH", city: "Hong Kong" },
+      { code: "LTAC", city: "Ankara" },
+      { code: "OEJN", city: "Jeddah" },
+      { code: "RJTT", city: "Tokyo" },
+      { code: "OMAD", city: "Abu Dhabi" }
+    ]
+  };
+
+  const testimonials = [
+    {
+      name: "OLGA",
+      title: "VIP Flight Attendant",
+      company: "Falcon 7x",
+      text: "Inflight Chef Delight is a simple and efficient management of all my private jet catering orders. It is the guarantee to always have high end quality catering for my jet without having to manage anything. The organization of the flights is already very stressful. It is important to have a partner such as Inflight Chef Delight on whom to count and not to worry anymore about the catering"
+    },
+    {
+      name: "ERIC",
+      title: "Manager Operation",
+      company: "Jet Aviation",
+      text: "At Jet Aviation, we have outsourced our private jet catering orders to Inflight Chef Delight. Their network and tools make them much more efficient and effective than our former in-house catering department. This has saved us money and has allowed us to greatly improve the quality of the meals provided on board our aircraft."
+    }
+  ];
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Airport Destinations Hero */}
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight">
+              ORDER YOUR<br />
+              <span className="text-primary">PRIVATE JET</span><br />
+              <span className="text-primary">CATERING</span><br />
+              FOR OUR TOP<br />
+              DESTINATIONS
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-md mx-auto mb-8">
+              Enjoy premium and seamless inflight catering service for your private flight with Inflight Chef Delight.
+            </p>
+            <p className="text-base text-muted-foreground mb-8">
+              Choose your airport departure from our top trending destinations at the moment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {Object.entries(destinationsData).map(([region, airports]) => (
+              <div key={region} className="space-y-4">
+                <h3 className="text-xl font-bold text-primary text-center mb-6">{region}</h3>
+                <div className="space-y-2">
+                  {airports.map((airport) => (
+                    <div key={airport.code} className="flex justify-between items-center text-sm hover:bg-muted/50 p-2 rounded transition-colors">
+                      <span className="font-medium text-foreground">{airport.code}</span>
+                      <span className="text-muted-foreground">{airport.city}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white px-8 py-3">
+              MORE AIRPORTS <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Cost-Effective Section */}
+      <section className="py-20 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <img 
+                src={heroImage}
+                alt="Private jet on tarmac" 
+                className="rounded-lg shadow-xl w-full"
+              />
+            </div>
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+                COST-EFFECTIVE INFLIGHT<br />
+                CATERING SOLUTIONS
+              </h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                In the realm of private jet and aviation catering, we focus on streamlining accounting with masterful cost optimization. Our services include efficient cost control, advantageous discounts, flexible payment terms, tax optimization strategies, and streamlined billing, all aimed at saving time and money in inflight catering and jet catering services.
+              </p>
+              <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white">
+                SEE THE BENEFITS <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Jet Catering Connect */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+                QUICK JET CATERING<br />
+                CONNECT
+              </h2>
+              <div className="space-y-4 text-muted-foreground mb-8">
+                <p>We always reply in less than 10 minutes to your email to ensure the best possible assistance.</p>
+                <p>Live chat available through WhatsApp for instant communication</p>
+              </div>
+              <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white">
+                GET THE DETAILS <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-muted to-background rounded-lg p-8 text-center">
+                <div className="w-32 h-32 bg-muted rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <Phone className="w-16 h-16 text-primary" />
+                </div>
+                <p className="text-muted-foreground">Live chat communication</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bespoke Private Jet Catering */}
+      <section className="py-20 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="bg-gradient-to-br from-orange-400 via-pink-400 to-purple-500 rounded-lg aspect-square flex items-center justify-center">
+                <div className="text-white text-center">
+                  <Utensils className="w-20 h-20 mx-auto mb-4" />
+                  <p className="text-lg font-medium">Premium Catering</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+                BESPOKE PRIVATE JET<br />
+                CATERING EXCELLENCE
+              </h2>
+              <div className="space-y-4 text-muted-foreground mb-8">
+                <p>We provide fresh and local top of the range quality products with adapted packaging that meet private jet catering requirements.</p>
+                <p>Our Chefs are always happy to answer all your passenger's desires to ensure the best possible inflight catering experience in their private jets.</p>
+              </div>
+              <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white">
+                DIVE INTO QUALITY <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            THEY TRUST
+          </h2>
+          <p className="text-lg text-muted-foreground mb-12">
+            OUR PRIVATE JET CATERING COMPANY
+          </p>
+          
+          <div className="mb-16">
+            <h3 className="text-xl font-semibold text-muted-foreground mb-8">FBO & FLIGHT SUPPORT</h3>
+            <div className="flex justify-center items-center space-x-12 opacity-60">
+              <div className="text-2xl font-bold text-[#8B7355]">Signature</div>
+              <div className="text-2xl font-bold text-gray-400">JETEX</div>
+              <div className="text-2xl font-bold text-[#8B7355]">ExecuJet</div>
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h3 className="text-xl font-semibold text-muted-foreground mb-8">JET BROKER</h3>
+            <div className="flex justify-center items-center space-x-12 opacity-60">
+              <div className="text-2xl font-bold text-[#8B7355]">LUNAJETS</div>
+              <div className="text-2xl font-bold text-gray-400">PRIVATEFLY</div>
+            </div>
+          </div>
+
+          <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white">
+            DISCOVER OUR SERVICES <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </div>
+      </section>
+
+      {/* Chef AI Section */}
+      <section className="py-20 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-emerald-900/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Revolutionize<br />
+                Your Inflight Catering<br />
+                with <span className="text-yellow-400">CHEF AI</span>
+              </h2>
+              <p className="text-xl mb-4 font-semibold">AI-GENERATED PRIVATE JET MENUS</p>
+              <p className="text-xl mb-8 font-semibold">CRAFTED IN MINUTES</p>
+              <Button variant="default" className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3">
+                START NOW
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="bg-black rounded-lg p-8 max-w-sm mx-auto">
+                <div className="text-yellow-400 text-center mb-4">
+                  <Star className="w-8 h-8 mx-auto mb-2" />
+                  <p className="text-sm">INNOVATION IN INFLIGHT DINING HAS ARRIVED</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-emerald-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white/10 border-white/20 text-white">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg">{testimonial.name}</h3>
+                      <p className="text-white/80">{testimonial.title}</p>
+                      <p className="text-yellow-400 font-semibold">{testimonial.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-white/90 leading-relaxed">{testimonial.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-16">
+            <div className="w-32 h-32 bg-white/10 rounded-full mx-auto mb-8 flex items-center justify-center">
+              <Globe className="w-16 h-16 text-primary" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              FIND YOUR AIRPORT
+            </h2>
+            <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white">
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <h3 className="text-5xl md:text-6xl font-bold text-primary mb-4">2500</h3>
+              <p className="text-xl font-semibold text-muted-foreground">AIRPORTS</p>
+              <p className="text-muted-foreground">where we provide VIP catering for private jets</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-5xl md:text-6xl font-bold text-primary mb-4">250</h3>
+              <p className="text-xl font-semibold text-muted-foreground">PRIVATE JET</p>
+              <p className="text-muted-foreground">DELIVERED PER DAY</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-5xl md:text-6xl font-bold text-primary mb-4">10000</h3>
+              <p className="text-xl font-semibold text-muted-foreground">VIP FA WHO</p>
+              <p className="text-muted-foreground">TRUST US</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Hero */}
+      <section className="relative py-32 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-navy-deep/60"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Premium Inflight Catering,<br />
-            <span className="text-gold-luxury">Delivered Anywhere You Fly</span>
+          <p className="text-lg mb-4">PRIVATE JET CATERING</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-yellow-400">
+            TREAT YOURSELF RIGHT
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Exceptional culinary experiences for private jets, commercial airlines, and charter flights worldwide.
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+            BECAUSE YOU DESERVE ONLY THE BEST<br />
+            PRIVATE JET VIP CATERING
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/request">
-              <Button variant="luxury" size="lg" className="text-lg px-8 py-4">
-                Request Catering <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-            <Link to="/menu">
-              <Button variant="premium" size="lg" className="text-lg px-8 py-4">
-                View Menus
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-20 bg-gradient-to-b from-silver-elegant to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-deep mb-4">
-              How It Works
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Three simple steps to exceptional inflight dining
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 hover:shadow-elegant transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-gold-luxury to-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Utensils className="w-8 h-8 text-navy-deep" />
-                </div>
-                <h3 className="text-xl font-semibold text-navy-deep mb-4">
-                  1. Send Your Catering Request
-                </h3>
-                <p className="text-gray-600">
-                  Submit your flight details, passenger count, and preferences through our streamlined request form.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-8 hover:shadow-elegant transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-gold-luxury to-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-8 h-8 text-navy-deep" />
-                </div>
-                <h3 className="text-xl font-semibold text-navy-deep mb-4">
-                  2. We Source & Customize Your Menu
-                </h3>
-                <p className="text-gray-600">
-                  Our team curates premium meals from local partners, customized to your dietary requirements and preferences.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-8 hover:shadow-elegant transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-gold-luxury to-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Clock className="w-8 h-8 text-navy-deep" />
-                </div>
-                <h3 className="text-xl font-semibold text-navy-deep mb-4">
-                  3. Delivered On-Time to Your Aircraft
-                </h3>
-                <p className="text-gray-600">
-                  Fresh, beautifully presented meals delivered directly to your aircraft with precision timing.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Serve Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-deep mb-4">
-              Who We Serve
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Premium catering solutions for every type of aviation service
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-24 h-24 bg-gradient-to-r from-navy-deep to-sky-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Plane className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-2xl font-semibold text-navy-deep mb-4">Private Jets</h3>
-              <p className="text-gray-600">
-                Luxury dining experiences tailored for discerning private jet passengers
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-24 h-24 bg-gradient-to-r from-navy-deep to-sky-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-2xl font-semibold text-navy-deep mb-4">Commercial Airlines</h3>
-              <p className="text-gray-600">
-                Scalable catering solutions for commercial airline operations
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-24 h-24 bg-gradient-to-r from-navy-deep to-sky-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Plane className="w-12 h-12 text-white transform rotate-45" />
-              </div>
-              <h3 className="text-2xl font-semibold text-navy-deep mb-4">Charter Flights</h3>
-              <p className="text-gray-600">
-                Flexible catering options for charter flight operators
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Premium Service Showcase */}
-      <section className="py-20 bg-gradient-to-r from-navy-deep to-sky-blue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Exceptional Quality, Every Flight
-              </h2>
-              <p className="text-xl mb-8 text-gray-200">
-                Our culinary team works with premium local suppliers to ensure every meal meets the highest standards of taste, presentation, and safety.
-              </p>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-gold-luxury" />
-                  <span>Fresh, locally-sourced ingredients</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-gold-luxury" />
-                  <span>Dietary restrictions accommodated</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-gold-luxury" />
-                  <span>Temperature-controlled delivery</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-gold-luxury" />
-                  <span>24/7 customer support</span>
-                </li>
-              </ul>
-              <Link to="/about">
-                <Button variant="luxury" size="lg">
-                  Learn More About Us
-                </Button>
-              </Link>
-            </div>
-            <div className="relative">
-              <img 
-                src={cateringImage} 
-                alt="Premium inflight catering" 
-                className="rounded-lg shadow-2xl w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-silver-elegant">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-deep mb-6">
-            Ready for Premium Inflight Dining?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Submit your catering request now and let us elevate your flight experience.
-          </p>
-          <Link to="/request">
-            <Button variant="luxury" size="lg" className="text-lg px-12 py-4">
-              Request Catering Now <ArrowRight className="ml-2 w-5 h-5" />
+            <Button variant="outline" className="bg-transparent border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3">
+              ORDER NOW
             </Button>
-          </Link>
+            <Button variant="default" className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3">
+              VIP MENU
+            </Button>
+          </div>
         </div>
       </section>
     </div>
