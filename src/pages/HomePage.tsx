@@ -83,7 +83,36 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Airport Destinations Hero */}
+      {/* Hero Section - TREAT YOURSELF RIGHT */}
+      <section className="relative py-32 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <p className="text-lg mb-4">PRIVATE JET CATERING</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-yellow-400">
+            TREAT YOURSELF RIGHT
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+            BECAUSE YOU DESERVE ONLY THE BEST<br />
+            PRIVATE JET VIP CATERING
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="outline" className="bg-transparent border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3">
+              ORDER NOW
+            </Button>
+            <Button variant="default" className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3">
+              VIP MENU
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Airport Destinations Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -329,35 +358,6 @@ const HomePage = () => {
               <p className="text-xl font-semibold text-muted-foreground">VIP FA WHO</p>
               <p className="text-muted-foreground">TRUST US</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Hero */}
-      <section className="relative py-32 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-        
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <p className="text-lg mb-4">PRIVATE JET CATERING</p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-yellow-400">
-            TREAT YOURSELF RIGHT
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            BECAUSE YOU DESERVE ONLY THE BEST<br />
-            PRIVATE JET VIP CATERING
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" className="bg-transparent border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3">
-              ORDER NOW
-            </Button>
-            <Button variant="default" className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3">
-              VIP MENU
-            </Button>
           </div>
         </div>
       </section>
