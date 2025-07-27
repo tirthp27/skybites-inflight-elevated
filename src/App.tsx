@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
 import RequestPage from "./pages/RequestPage";
-import AboutPage from "./pages/AboutPage";
+import AirportsPage from "./pages/AirportsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -27,7 +27,7 @@ const App = () => (
               <Route path="/" element={<HomePage />} />
               <Route path="/menu" element={<MenuPage />} />
               <Route path="/request" element={<RequestPage />} />
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="/airports" element={<AirportsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
