@@ -58,7 +58,7 @@ const MenuPage = () => {
         {/* Main Menu Content */}
         <div className="flex-1">
           {/* Breakfast Section */}
-          <section>
+          <section id="breakfast">
             <div className="bg-navy-deep text-gold-luxury py-6">
               <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center">BREAKFAST</h2>
@@ -173,7 +173,7 @@ const MenuPage = () => {
           </section>
 
           {/* Starters Section */}
-          <section>
+          <section id="starters">
             <div className="bg-navy-deep text-gold-luxury py-6">
               <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center">STARTERS</h2>
@@ -253,7 +253,7 @@ const MenuPage = () => {
           </section>
 
           {/* Main Course Section */}
-          <section>
+          <section id="main-course">
             <div className="bg-navy-deep text-gold-luxury py-6">
               <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center">MAIN COURSE</h2>
@@ -343,8 +343,157 @@ const MenuPage = () => {
             </div>
           </section>
 
+          {/* Chef Platters Section */}
+          <section id="chef-platters">
+            <div className="bg-navy-deep text-gold-luxury py-6">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center">CHEF PLATTERS</h2>
+              </div>
+            </div>
+            <div className="bg-white py-12">
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">SANDWICH</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Sandwiches 1/ 3 baguette</li>
+                      <li>Club Sandwich<br /><span className="text-sm italic text-gray-600">1 square cut in 2 triangles</span></li>
+                      <li>Sandwiches Finger<br /><span className="text-sm italic text-gray-600">1 square cut in half</span></li>
+                      <li>Sandwich Gourmet<br /><span className="text-sm italic text-gray-600">Small open faced sandwiches</span></li>
+                      <li>Open sandwiches</li>
+                      <li>Sandwich Triangle<br /><span className="text-sm italic text-gray-600">1 square cut in 2 triangles</span></li>
+                      <li>Sandwiches wraps<br /><span className="text-sm italic text-gray-600">Cut in half</span></li>
+                    </ul>
+
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury mt-8">CARPACCIO</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Beef carpaccio</li>
+                      <li>Vegetarian carpaccio</li>
+                      <li>Vitello tonato</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">CANAPE & MEZZEH</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Cold Canapes</li>
+                      <li>Hot Canapes</li>
+                      <li>Cold mezzeh</li>
+                      <li>Hot mezzeh</li>
+                    </ul>
+
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury mt-8">MEAT & FISH</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Balik salmon<br /><span className="text-sm italic text-gray-600">With sour cream, capers, blinis and lemon</span></li>
+                      <li>Smoked fish</li>
+                      <li>Cold cut meat<br /><span className="text-sm italic text-gray-600">(No pork option available)</span></li>
+                      <li>Smoked salmon<br /><span className="text-sm italic text-gray-600">With sour cream, capers, blinis and lemon</span></li>
+                      <li>Seafood platter</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">PRESTIGE</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Caviar</li>
+                      <li>Foie gras parfait</li>
+                    </ul>
+
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury mt-8">OTHERS</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Antipasti</li>
+                      <li>Sliced Cheese</li>
+                      <li>Crudites</li>
+                    </ul>
+
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury mt-8">SUSHI</h3>
+                    <div className="bg-navy-deep/10 p-3 rounded mb-4">
+                      <p className="text-sm text-navy-deep font-medium">Tell us what's your favorite composition!</p>
+                    </div>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>California roll</li>
+                      <li>Maki</li>
+                      <li>Sashimi</li>
+                      <li>Sushi</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="text-center mt-12">
+                  <Button variant="outline" className="text-gold-luxury border-gold-luxury hover:bg-gold-luxury hover:text-white">
+                    ORDER
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Fruit Corner Section */}
+          <section id="fruit-corner">
+            <div className="bg-navy-deep text-gold-luxury py-6">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center">HEALTHY AND FRUIT CORNER</h2>
+              </div>
+            </div>
+            <div className="bg-white py-12">
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">SMOOTHIE & FRESHLY SQUEEZED JUICE</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Apple juice</li>
+                      <li>Berries</li>
+                      <li>Carrot</li>
+                      <li>Grapefruit</li>
+                      <li>Healthy</li>
+                      <li>Mango</li>
+                      <li>Orange</li>
+                      <li>Pineapple</li>
+                      <li>Watermelon</li>
+                      <li>Smoothie</li>
+                      <li>Make your own homemade smoothie<br /><span className="text-sm italic text-gray-600">& Pick 3 fruits</span></li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">FRESH FRUIT</h3>
+                    <p className="text-sm italic text-gray-600 mb-4">(SEASONAL LUXURY SELECTION)</p>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Berries</li>
+                      <li>Fruit basket | <span className="text-sm italic text-gray-600">Large</span></li>
+                      <li>Fruit basket | <span className="text-sm italic text-gray-600">Medium</span></li>
+                      <li>Fruit basket | <span className="text-sm italic text-gray-600">Small</span></li>
+                      <li>Fruit kebab</li>
+                      <li>Sliced fruit</li>
+                      <li>Lemon sliced</li>
+                      <li>Lemon whole</li>
+                      <li>Lime sliced</li>
+                      <li>Lime Whole</li>
+                    </ul>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="w-64 h-64 bg-gradient-to-br from-orange-400 via-yellow-400 to-red-400 rounded-lg overflow-hidden">
+                      <img 
+                        src="/placeholder.svg" 
+                        alt="Fresh fruit arrangement"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center mt-12">
+                  <Button variant="outline" className="text-gold-luxury border-gold-luxury hover:bg-gold-luxury hover:text-white">
+                    ORDER
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Dessert Section */}
-          <section>
+          <section id="dessert">
             <div className="bg-navy-deep text-gold-luxury py-6">
               <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center">DESSERT</h2>
@@ -401,7 +550,7 @@ const MenuPage = () => {
           </section>
 
           {/* Beverages Section */}
-          <section>
+          <section id="beverages">
             <div className="bg-navy-deep text-gold-luxury py-6">
               <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center">BEVERAGES</h2>
@@ -413,34 +562,91 @@ const MenuPage = () => {
                   <div>
                     <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">COLD</h3>
                     <ul className="space-y-3 text-navy-deep">
-                      <li>Premium Water Selection</li>
-                      <li>Fresh Juices</li>
-                      <li>Soft Drinks</li>
-                      <li>Iced Coffee & Tea</li>
-                      <li>Energy Drinks</li>
+                      <li>Alternative Milk<br /><span className="text-sm italic text-gray-600">(Almond, Soya, Rice, Lactose-free, Hazelnut or Coconut)</span></li>
+                      <li>Fresh Milk<br /><span className="text-sm italic text-gray-600">(Full fat, Semi skim or Skim)</span></li>
+                      <li>Soda</li>
+                      <li>Specify your brand<br /><span className="text-sm italic text-gray-600">(Cans or Bottle)</span></li>
+                      <li>Water Specify your brand<br /><span className="text-sm italic text-gray-600">(25cl, 33cl, 50cl, 1L or 1.5L)</span></li>
                     </ul>
                   </div>
 
                   <div>
                     <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">HOT</h3>
                     <ul className="space-y-3 text-navy-deep">
-                      <li>Premium Coffee Selection</li>
-                      <li>Espresso</li>
-                      <li>Cappuccino</li>
-                      <li>Premium Tea Collection</li>
-                      <li>Hot Chocolate</li>
+                      <li>Coffee<br /><span className="text-sm italic text-gray-600">Thermos not included | (Regular or Decaffeinated)</span></li>
+                      <li>Nespresso capsules<br /><span className="text-sm italic text-gray-600">Specify your flavour | (10 capsules per flavour)</span></li>
+                      <li>Thermos flask Tea Box<br /><span className="text-sm italic text-gray-600">Specify your brand and flavour</span></li>
+                      <li>Herbal tea box<br /><span className="text-sm italic text-gray-600">Specify your brand and flavour</span></li>
                     </ul>
                   </div>
 
                   <div>
                     <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">ALCOHOL</h3>
                     <ul className="space-y-3 text-navy-deep">
-                      <li>Champagne Selection</li>
-                      <li>Wine Collection</li>
-                      <li>Premium Spirits</li>
-                      <li>Cocktail Service</li>
-                      <li>Beer Selection</li>
+                      <li>Beer<br /><span className="text-sm italic text-gray-600">Specify your brand | (Cans or Bottle)</span></li>
+                      <li>Champagne Bottle<br /><span className="text-sm italic text-gray-600">Specify your brand | (Prestige/Brut/Rosé)</span></li>
+                      <li>Spirit Bottle<br /><span className="text-sm italic text-gray-600">Specify your brand</span></li>
+                      <li>Wine Bottle<br /><span className="text-sm italic text-gray-600">Specify your brand | (Red, Rose or White)</span></li>
                     </ul>
+                  </div>
+                </div>
+
+                <div className="text-center mt-12">
+                  <Button variant="outline" className="text-gold-luxury border-gold-luxury hover:bg-gold-luxury hover:text-white">
+                    ORDER
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Non Food Section */}
+          <section id="non-food">
+            <div className="bg-navy-deep text-gold-luxury py-6">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center">NON FOOD</h2>
+              </div>
+            </div>
+            <div className="bg-white py-12">
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">CABIN AMENITIES</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Flower arrangement large</li>
+                      <li>Flower arrangement medium</li>
+                      <li>Flower arrangement small</li>
+                      <li>Flower individual</li>
+                      <li>Magazines<br /><span className="text-sm italic text-gray-600">Specify your requirements</span></li>
+                      <li>Printed Menu<br /><span className="text-sm italic text-gray-600">Specify the language</span></li>
+                      <li>International newspaper<br /><span className="text-sm italic text-gray-600">Specify your requirements</span></li>
+                      <li>Local newspapers</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-light text-gold-luxury mb-6 pb-2 border-b border-gold-luxury">SUPPLIES</h3>
+                    <ul className="space-y-3 text-navy-deep">
+                      <li>Ice cube</li>
+                      <li>Dry ice</li>
+                      <li>Oshibori</li>
+                      <li>Paper towel roll</li>
+                      <li>Cleaning dishies</li>
+                      <li>Cleaning laundry</li>
+                      <li>Loading w. highloader<br /><span className="text-sm italic text-gray-600">Specify your aircraft type</span></li>
+                      <li>Offloading w. highloader<br /><span className="text-sm italic text-gray-600">Specify your aircraft type</span></li>
+                      <li>Meet upon arrival service</li>
+                    </ul>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="w-64 h-64 bg-gradient-to-br from-pink-200 via-rose-300 to-yellow-200 rounded-lg overflow-hidden">
+                      <img 
+                        src="/placeholder.svg" 
+                        alt="Cabin amenities and flowers"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
 
