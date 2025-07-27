@@ -52,6 +52,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Sky Bites Premium Colors
+				'sky-blue': 'hsl(var(--sky-blue))',
+				'navy-deep': 'hsl(var(--navy-deep))',
+				'gold-luxury': 'hsl(var(--gold-luxury))',
+				'silver-elegant': 'hsl(var(--silver-elegant))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
