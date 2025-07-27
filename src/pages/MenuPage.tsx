@@ -1,73 +1,92 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ArrowRight, Filter, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 
 const MenuPage = () => {
-  const [selectedFilter, setSelectedFilter] = useState("all");
-
-  const mealCategories = [
-    { id: "all", name: "All Meals" },
-    { id: "breakfast", name: "Breakfast" },
-    { id: "lunch", name: "Lunch" },
-    { id: "dinner", name: "Dinner" },
-    { id: "beverages", name: "Beverages" },
-    { id: "snacks", name: "Snacks" },
-  ];
-
-  const sampleMenus = [
+  const menuItems = [
     {
       id: 1,
       title: "Executive Breakfast",
-      category: "breakfast",
+      type: "Breakfast",
       description: "Premium morning selection with fresh pastries, seasonal fruits, and artisanal coffee",
       price: "From $45/person",
-      dietary: ["Vegetarian Options", "Gluten-Free"],
-      image: "/placeholder-breakfast.jpg"
+      dietary: ["Vegetarian Options", "Gluten-Free"]
     },
     {
       id: 2,
       title: "Gourmet Business Lunch",
-      category: "lunch",
+      type: "Lunch",
       description: "Sophisticated lunch featuring locally-sourced ingredients and international cuisine",
       price: "From $65/person",
-      dietary: ["Vegan Options", "Kosher Available"],
-      image: "/placeholder-lunch.jpg"
+      dietary: ["Vegan Options", "Kosher Available"]
     },
     {
       id: 3,
       title: "Fine Dining Experience",
-      category: "dinner",
+      type: "Dinner",
       description: "Multi-course dinner crafted by top chefs with wine pairing recommendations",
       price: "From $95/person",
-      dietary: ["Pescatarian", "Dairy-Free"],
-      image: "/placeholder-dinner.jpg"
+      dietary: ["Pescatarian", "Dairy-Free"]
     },
     {
       id: 4,
-      title: "Premium Beverage Selection",
-      category: "beverages",
-      description: "Curated selection of fine wines, spirits, and specialty non-alcoholic beverages",
-      price: "From $25/person",
-      dietary: ["Non-Alcoholic", "Organic Options"],
-      image: "/placeholder-beverages.jpg"
+      title: "Artisanal Snack Collection",
+      type: "Snacks",
+      description: "Gourmet snacks and light bites perfect for shorter flights",
+      price: "From $30/person",
+      dietary: ["Nut-Free", "Low-Carb"]
     },
     {
       id: 5,
-      title: "Artisanal Snack Collection",
-      category: "snacks",
-      description: "Gourmet snacks and light bites perfect for shorter flights",
-      price: "From $30/person",
-      dietary: ["Nut-Free", "Low-Carb"],
-      image: "/placeholder-snacks.jpg"
+      title: "Gourmet Cheese & Charcuterie Platter",
+      type: "Platters",
+      description: "Premium selection of international cheeses, cured meats, and artisanal accompaniments",
+      price: "From $55/person",
+      dietary: ["Vegetarian Options", "Wine Pairing"]
     },
+    {
+      id: 6,
+      title: "Decadent Dessert Selection",
+      type: "Desserts",
+      description: "Handcrafted desserts featuring seasonal ingredients and elegant presentation",
+      price: "From $35/person",
+      dietary: ["Gluten-Free", "Sugar-Free Options"]
+    },
+    {
+      id: 7,
+      title: "Premium Beverage Collection",
+      type: "Drinks",
+      description: "Curated selection of fine wines, spirits, champagne, and specialty non-alcoholic beverages",
+      price: "From $25/person",
+      dietary: ["Non-Alcoholic", "Organic Options"]
+    },
+    {
+      id: 8,
+      title: "Fresh Seafood Platter",
+      type: "Platters",
+      description: "Sustainably-sourced seafood selection with cocktail accompaniments",
+      price: "From $75/person",
+      dietary: ["Pescatarian", "Keto-Friendly"]
+    },
+    {
+      id: 9,
+      title: "International Tapas Selection",
+      type: "Snacks",
+      description: "Small plates inspired by global cuisines, perfect for networking flights",
+      price: "From $40/person",
+      dietary: ["Mediterranean", "Vegetarian Options"]
+    },
+    {
+      id: 10,
+      title: "Signature Cocktail Service",
+      type: "Drinks",
+      description: "Professionally crafted cocktails with premium spirits and fresh ingredients",
+      price: "From $35/person",
+      dietary: ["Custom Mixology", "Mocktail Options"]
+    }
   ];
-
-  const filteredMenus = selectedFilter === "all" 
-    ? sampleMenus 
-    : sampleMenus.filter(menu => menu.category === selectedFilter);
 
   return (
     <div className="min-h-screen pt-16">
@@ -92,49 +111,38 @@ const MenuPage = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 bg-silver-elegant border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center space-x-2">
-              <Filter className="w-5 h-5 text-navy-deep" />
-              <span className="font-semibold text-navy-deep">Filter by meal type:</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {mealCategories.map((category) => (
-                <Button
-                  key={category.id}
-                  onClick={() => setSelectedFilter(category.id)}
-                  variant={selectedFilter === category.id ? "default" : "outline"}
-                  size="sm"
-                >
-                  {category.name}
-                </Button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Menu Gallery */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-deep mb-4">
+              Complete Menu Selection
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From breakfast to dinner, snacks to desserts - everything you need for exceptional inflight dining
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredMenus.map((menu) => (
-              <Card key={menu.id} className="overflow-hidden hover:shadow-elegant transition-all duration-300 group">
+            {menuItems.map((item) => (
+              <Card key={item.id} className="overflow-hidden hover:shadow-elegant transition-all duration-300 group">
                 <div className="h-48 bg-gradient-to-r from-silver-elegant to-gray-200 flex items-center justify-center">
                   <span className="text-gray-500 text-sm">Menu Image</span>
                 </div>
                 <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="outline" className="text-navy-deep border-navy-deep">
+                      {item.type}
+                    </Badge>
+                  </div>
                   <CardTitle className="text-navy-deep group-hover:text-sky-blue transition-colors">
-                    {menu.title}
+                    {item.title}
                   </CardTitle>
-                  <p className="text-gold-luxury font-semibold">{menu.price}</p>
+                  <p className="text-gold-luxury font-semibold">{item.price}</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">{menu.description}</p>
+                  <p className="text-gray-600 mb-4">{item.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {menu.dietary.map((diet) => (
+                    {item.dietary.map((diet) => (
                       <Badge key={diet} variant="secondary">
                         {diet}
                       </Badge>
