@@ -72,7 +72,7 @@ interface GoogleAirportMapProps {
   destinationsData: Record<string, Array<{ code: string; city: string }>>;
 }
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyAVh_Q-6coOVbRBoTTnKyiNszBVXpouYgg';
+const GOOGLE_MAPS_API_KEY = 'AIzaSyCcoz-LoJMuD9n287rtwKBP_qUvamux7ww';
 
 export default function GoogleAirportMap({ destinationsData }: GoogleAirportMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
