@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Phone, Star, Users, MapPin, Plane, Globe, Utensils } from "lucide-react";
 import heroImage from "@/assets/hero-aviation.jpg";
-import InteractiveGlobe from "@/components/InteractiveGlobe";
+import AirportMap from "@/components/AirportMap";
 
 const HomePage = () => {
   const destinationsData = {
@@ -132,9 +132,9 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Interactive 3D Globe */}
+          {/* Interactive 2D Airport Map */}
           <div className="mb-12 relative">
-            <InteractiveGlobe destinationsData={destinationsData} />
+            <AirportMap destinationsData={destinationsData} />
           </div>
 
           {/* Airport Lists Below Globe */}
