@@ -19,12 +19,12 @@ const Navigation = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[100px]">
+        <div className="flex items-center justify-between h-20">
           {/* Left Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-base font-medium transition-colors hover:text-amber-400 ${
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/") ? "text-amber-400" : "text-white"
               }`}
             >
@@ -32,7 +32,7 @@ const Navigation = () => {
             </Link>
             <Link
               to="/menu"
-              className={`text-base font-medium transition-colors hover:text-amber-400 ${
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/menu") ? "text-amber-400" : "text-white"
               }`}
             >
@@ -53,15 +53,15 @@ const Navigation = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/airports"
-              className={`text-base font-medium transition-colors hover:text-amber-800 ${
-                isActive("/airports") ? "text-amber-800" : "text-white"
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
+                isActive("/airports") ? "text-amber-400" : "text-white"
               }`}
             >
               Airports
             </Link>
             <Link
               to="/contact"
-              className={`text-base font-medium transition-colors hover:text-amber-400 ${
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/contact") ? "text-amber-400" : "text-white"
               }`}
             >
@@ -87,7 +87,7 @@ const Navigation = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-base font-medium transition-colors hover:text-amber-400 px-4 ${
+                  className={`text-sm font-medium transition-colors hover:text-amber-400 px-4 ${
                     isActive(item.path) ? "text-amber-400" : "text-white"
                   }`}
                 >
