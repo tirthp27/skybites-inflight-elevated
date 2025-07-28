@@ -1,50 +1,181 @@
+import { useEffect, useRef } from 'react';
+
+// Airport coordinates (lat, lon)
+const airportCoordinates: Record<string, [number, number]> = {
+  // North America
+  "KTEB": [40.8501, -74.0606], // Teterboro
+  "KLAS": [36.0840, -115.1537], // Las Vegas
+  "KDAL": [32.8471, -96.8518], // Dallas
+  "KVNY": [34.2098, -118.4897], // Los Angeles
+  "KHPN": [41.0670, -73.7076], // Westchester County
+  "KIAD": [38.9445, -77.4558], // Washington
+  "KPBI": [26.6832, -80.0956], // West Palm Beach
+  "KHOU": [29.6454, -95.2789], // Houston
+  "KMDW": [41.7868, -87.7522], // Chicago
+  "CYYZ": [43.6777, -79.6248], // Toronto
+  "KSDL": [33.6103, -111.9011], // Phoenix
+  "KPDK": [33.8756, -84.3020], // Atlanta
+  "KOPF": [25.9074, -80.2781], // Miami
+  "KAPF": [26.1525, -81.7752], // Naples
+  "KBNA": [36.1245, -86.6782], // Nashville
+  "KAUS": [30.1945, -97.6699], // Austin
+  
+  // Europe
+  "LFPB": [48.9694, 2.4414], // Paris
+  "LFMN": [43.6584, 7.2157], // Nice
+  "LSGG": [46.2381, 6.1089], // Geneva
+  "EGLF": [51.3307, -0.7624], // London
+  "LSZH": [47.4647, 8.5492], // Zurich
+  "LIRA": [41.8003, 12.2389], // Rome
+  "EDDM": [48.3538, 11.7861], // Munich
+  "LIML": [45.6306, 8.7281], // Milan
+  "LEMD": [40.4719, -3.5626], // Madrid
+  "LEPA": [39.5517, 2.7388], // Palma de Mallorca
+  "LEIB": [38.8729, 1.3731], // Ibiza
+  "EHAM": [52.3086, 4.7639], // Amsterdam
+  "LEBL": [41.2971, 2.0833], // Barcelona
+  "LKPR": [50.1008, 14.2632], // Prague
+  "LEMG": [36.6749, -4.4991], // Malaga
+  "LGAV": [37.9365, 23.9445], // Athens
+  
+  // Islands
+  "MYNN": [25.0389, -77.4661], // Bahamas Nassau
+  "MBPV": [21.7737, -72.2656], // Providenciales
+  "TJSJ": [18.4394, -66.0018], // San Juan
+  "TNCM": [18.0431, -63.1089], // St Maarten
+  "MYAM": [26.5110, -77.0832], // Marsh Harbour
+  "TXKF": [32.3639, -64.6789], // Bermuda Hamilton
+  "TBPB": [13.0749, -59.4925], // Barbados Bridgetown
+  "TIST": [18.3370, -64.9734], // St Thomas
+  "TCLK": [34.8751, 33.6249], // Larnaca
+  "VRMM": [4.1917, 73.5289], // Maldives Hulule Island
+  "FSIA": [-4.6740, 55.5181], // Seychelles Mahe Island
+  
+  // Middle East
+  "LTBA": [41.2753, 28.7519], // Istanbul
+  "OERK": [24.9576, 46.6988], // Riyadh
+  "VHHH": [22.3080, 113.9185], // Hong Kong
+  "LTAC": [40.1281, 32.9956], // Ankara
+  "OEJN": [21.6796, 39.1565], // Jeddah
+  "RJTT": [35.7647, 140.3864], // Tokyo
+  "OMAD": [24.4339, 54.6510], // Abu Dhabi
+};
+
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
+
 interface GoogleAirportMapProps {
   destinationsData: Record<string, Array<{ code: string; city: string }>>;
 }
 
+const GOOGLE_MAPS_API_KEY = 'AIzaSyAVh_Q-6coOVbRBoTTnKyiNszBVXpouYgg';
+
 export default function GoogleAirportMap({ destinationsData }: GoogleAirportMapProps) {
-  // Create a search query with all airport cities for better coverage
-  const allAirports = Object.values(destinationsData).flat();
-  const majorCities = allAirports.slice(0, 10).map(airport => airport.city).join('|');
-  
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  const initializeMap = () => {
+    if (!mapRef.current || !window.google) return;
+
+    const mapInstance = new window.google.maps.Map(mapRef.current, {
+      zoom: 2,
+      center: { lat: 20, lng: 0 },
+      mapTypeId: 'roadmap',
+      styles: [
+        {
+          featureType: 'water',
+          elementType: 'geometry',
+          stylers: [{ color: '#a2daf2' }]
+        },
+        {
+          featureType: 'landscape.natural',
+          elementType: 'geometry',
+          stylers: [{ color: '#f5f5f5' }]
+        }
+      ]
+    });
+
+    // Add airport markers
+    Object.values(destinationsData).flat().forEach((airport) => {
+      const coords = airportCoordinates[airport.code];
+      if (coords) {
+        const [lat, lng] = coords;
+
+        const marker = new window.google.maps.Marker({
+          position: { lat, lng },
+          map: mapInstance,
+          title: `${airport.code} - ${airport.city}`,
+          icon: {
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 6,
+            fillColor: '#dc2626',
+            fillOpacity: 1,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
+          }
+        });
+
+        const infoWindow = new window.google.maps.InfoWindow({
+          content: `
+            <div style="font-family: system-ui; padding: 8px;">
+              <div style="font-weight: bold; color: #1f2937; margin-bottom: 4px;">${airport.code}</div>
+              <div style="color: #6b7280; font-size: 12px;">${airport.city}</div>
+            </div>
+          `
+        });
+
+        marker.addListener('mouseover', () => {
+          marker.setIcon({
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: '#fbbf24',
+            fillOpacity: 1,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
+          });
+          infoWindow.open(mapInstance, marker);
+        });
+
+        marker.addListener('mouseout', () => {
+          marker.setIcon({
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 6,
+            fillColor: '#dc2626',
+            fillOpacity: 1,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
+          });
+          infoWindow.close();
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (window.google) {
+      initializeMap();
+      return;
+    }
+
+    window.initMap = initializeMap;
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }, [destinationsData]);
+
   return (
     <div className="w-full h-[600px] bg-gradient-to-b from-slate-100 to-blue-50 rounded-lg overflow-hidden relative">
-      <iframe
-        src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyBFBhbVa9sUxFk5CQPM-zPQGYJ1_h5NDmo&center=40.7128,-74.0060&zoom=2&maptype=roadmap`}
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        className="rounded-lg"
-      />
+      <div ref={mapRef} className="absolute inset-0 rounded-lg" />
       
-      {/* Airport list overlay */}
-      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs max-h-96 overflow-y-auto">
-        <h3 className="font-semibold text-sm mb-3 text-gray-800">Our Airport Destinations</h3>
-        <div className="space-y-1 text-xs">
-          {Object.entries(destinationsData).map(([region, airports]) => (
-            <div key={region} className="mb-3">
-              <div className="font-medium text-primary mb-1">{region}</div>
-              <div className="grid grid-cols-1 gap-1 pl-2">
-                {airports.map((airport) => (
-                  <div key={airport.code} className="text-gray-600">
-                    <span className="font-mono text-xs bg-gray-100 px-1 rounded">
-                      {airport.code}
-                    </span>{' '}
-                    {airport.city}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Instructions overlay */}
       <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm text-gray-700 text-sm px-3 py-2 rounded-lg shadow-md">
-        <p>🗺️ Zoom and pan to explore our global destinations</p>
+        <p>🖱️ Drag to pan • 🔍 Scroll to zoom • 📍 Hover pins for details</p>
       </div>
     </div>
   );
