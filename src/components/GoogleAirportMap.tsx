@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Airport coordinates (lat, lon) - same as before
 const airportCoordinates: Record<string, [number, number]> = {
@@ -63,125 +61,148 @@ const airportCoordinates: Record<string, [number, number]> = {
   "OMAD": [24.4339, 54.6510], // Abu Dhabi
 };
 
-interface AirportMapProps {
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
+
+interface GoogleAirportMapProps {
   destinationsData: Record<string, Array<{ code: string; city: string }>>;
 }
 
-export default function AirportMap({ destinationsData }: AirportMapProps) {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState('');
-  const [showTokenInput, setShowTokenInput] = useState(true);
+export default function GoogleAirportMap({ destinationsData }: GoogleAirportMapProps) {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [googleApiKey, setGoogleApiKey] = useState('');
+  const [showApiKeyInput, setShowApiKeyInput] = useState(true);
+  const [map, setMap] = useState<any>(null);
 
-  const initializeMap = (token: string) => {
-    if (!mapContainer.current || !token) return;
+  const initializeMap = () => {
+    if (!mapRef.current || !window.google) return;
 
-    mapboxgl.accessToken = token;
-    
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      zoom: 1.5,
-      center: [20, 20],
-      attributionControl: false,
+    const mapInstance = new window.google.maps.Map(mapRef.current, {
+      zoom: 2,
+      center: { lat: 20, lng: 0 },
+      mapTypeId: 'roadmap',
+      styles: [
+        {
+          featureType: 'water',
+          elementType: 'geometry',
+          stylers: [{ color: '#a2daf2' }]
+        },
+        {
+          featureType: 'landscape.natural',
+          elementType: 'geometry',
+          stylers: [{ color: '#f5f5f5' }]
+        }
+      ]
     });
 
-    // Add navigation controls
-    map.current.addControl(
-      new mapboxgl.NavigationControl({
-        visualizePitch: false,
-      }),
-      'top-right'
-    );
+    setMap(mapInstance);
 
     // Add airport markers
-    map.current.on('load', () => {
-      Object.values(destinationsData).flat().forEach((airport) => {
-        const coords = airportCoordinates[airport.code];
-        if (coords && map.current) {
-          const [lat, lon] = coords;
+    Object.values(destinationsData).flat().forEach((airport) => {
+      const coords = airportCoordinates[airport.code];
+      if (coords) {
+        const [lat, lng] = coords;
 
-          // Create custom marker element
-          const markerElement = document.createElement('div');
-          markerElement.className = 'airport-marker';
-          markerElement.style.cssText = `
-            width: 12px;
-            height: 12px;
-            background-color: #dc2626;
-            border: 2px solid white;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          `;
+        const marker = new window.google.maps.Marker({
+          position: { lat, lng },
+          map: mapInstance,
+          title: `${airport.code} - ${airport.city}`,
+          icon: {
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 6,
+            fillColor: '#dc2626',
+            fillOpacity: 1,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
+          }
+        });
 
-          // Create popup
-          const popup = new mapboxgl.Popup({
-            offset: 15,
-            closeButton: false,
-            closeOnClick: false,
-          }).setHTML(`
+        const infoWindow = new window.google.maps.InfoWindow({
+          content: `
             <div style="font-family: system-ui; padding: 8px;">
-              <div style="font-weight: bold; color: #1f2937;">${airport.code}</div>
+              <div style="font-weight: bold; color: #1f2937; margin-bottom: 4px;">${airport.code}</div>
               <div style="color: #6b7280; font-size: 12px;">${airport.city}</div>
             </div>
-          `);
+          `
+        });
 
-          // Create marker
-          const marker = new mapboxgl.Marker(markerElement)
-            .setLngLat([lon, lat])
-            .addTo(map.current);
-
-          // Add hover events
-          markerElement.addEventListener('mouseenter', () => {
-            markerElement.style.backgroundColor = '#fbbf24';
-            markerElement.style.transform = 'scale(1.2)';
-            popup.addTo(map.current!);
-            marker.setPopup(popup);
-            popup.addTo(map.current!);
+        marker.addListener('mouseover', () => {
+          marker.setIcon({
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: '#fbbf24',
+            fillOpacity: 1,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
           });
+          infoWindow.open(mapInstance, marker);
+        });
 
-          markerElement.addEventListener('mouseleave', () => {
-            markerElement.style.backgroundColor = '#dc2626';
-            markerElement.style.transform = 'scale(1)';
-            popup.remove();
+        marker.addListener('mouseout', () => {
+          marker.setIcon({
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 6,
+            fillColor: '#dc2626',
+            fillOpacity: 1,
+            strokeColor: '#ffffff',
+            strokeWeight: 2,
           });
-        }
-      });
+          infoWindow.close();
+        });
+      }
     });
   };
 
-  const handleTokenSubmit = (e: React.FormEvent) => {
+  const loadGoogleMapsScript = (apiKey: string) => {
+    if (window.google) {
+      initializeMap();
+      return;
+    }
+
+    window.initMap = initializeMap;
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  };
+
+  const handleApiKeySubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (mapboxToken.trim()) {
-      setShowTokenInput(false);
-      initializeMap(mapboxToken.trim());
+    if (googleApiKey.trim()) {
+      setShowApiKeyInput(false);
+      loadGoogleMapsScript(googleApiKey.trim());
     }
   };
 
-  useEffect(() => {
-    return () => {
-      map.current?.remove();
-    };
-  }, []);
-
-  if (showTokenInput) {
+  if (showApiKeyInput) {
     return (
       <div className="w-full h-[600px] bg-gradient-to-b from-slate-100 to-blue-50 rounded-lg flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
-          <h3 className="text-lg font-semibold mb-4 text-center">Enter Mapbox Token</h3>
+          <h3 className="text-lg font-semibold mb-4 text-center">Enter Google Maps API Key</h3>
           <p className="text-sm text-muted-foreground mb-4 text-center">
-            Please enter your Mapbox public token to display the airport map.
-            Get your token at{' '}
-            <a href="https://mapbox.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-              mapbox.com
+            Please enter your Google Maps API key to display the airport map.
+            Get your API key at{' '}
+            <a 
+              href="https://developers.google.com/maps/documentation/javascript/get-api-key" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-primary hover:underline"
+            >
+              Google Cloud Console
             </a>
           </p>
-          <form onSubmit={handleTokenSubmit} className="space-y-4">
+          <form onSubmit={handleApiKeySubmit} className="space-y-4">
             <input
               type="text"
-              placeholder="pk.ey..."
-              value={mapboxToken}
-              onChange={(e) => setMapboxToken(e.target.value)}
+              placeholder="AIza..."
+              value={googleApiKey}
+              onChange={(e) => setGoogleApiKey(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               required
             />
@@ -199,7 +220,7 @@ export default function AirportMap({ destinationsData }: AirportMapProps) {
 
   return (
     <div className="w-full h-[600px] bg-gradient-to-b from-slate-100 to-blue-50 rounded-lg overflow-hidden relative">
-      <div ref={mapContainer} className="absolute inset-0" />
+      <div ref={mapRef} className="absolute inset-0 rounded-lg" />
       
       {/* Instructions overlay */}
       <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm text-gray-700 text-sm px-3 py-2 rounded-lg shadow-md">
