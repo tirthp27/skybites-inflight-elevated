@@ -24,7 +24,7 @@ const Navigation = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-4xl font-medium transition-colors hover:text-amber-400 ${
+              className={`text-base font-medium transition-colors hover:text-amber-400 ${
                 isActive("/") ? "text-amber-400" : "text-white"
               }`}
             >
@@ -32,7 +32,7 @@ const Navigation = () => {
             </Link>
             <Link
               to="/menu"
-              className={`text-4xl font-medium transition-colors hover:text-amber-400 ${
+              className={`text-base font-medium transition-colors hover:text-amber-400 ${
                 isActive("/menu") ? "text-amber-400" : "text-white"
               }`}
             >
@@ -53,15 +53,15 @@ const Navigation = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/airports"
-              className={`text-4xl font-medium transition-colors hover:text-amber-400 ${
-                isActive("/airports") ? "text-amber-400" : "text-white"
+              className={`text-base font-medium transition-colors hover:text-amber-800 ${
+                isActive("/airports") ? "text-amber-800" : "text-white"
               }`}
             >
               Airports
             </Link>
             <Link
               to="/contact"
-              className={`text-4xl font-medium transition-colors hover:text-amber-400 ${
+              className={`text-base font-medium transition-colors hover:text-amber-400 ${
                 isActive("/contact") ? "text-amber-400" : "text-white"
               }`}
             >
@@ -87,7 +87,7 @@ const Navigation = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-4xl font-medium transition-colors hover:text-amber-400 px-4 ${
+                  className={`text-base font-medium transition-colors hover:text-amber-400 px-4 ${
                     isActive(item.path) ? "text-amber-400" : "text-white"
                   }`}
                 >
