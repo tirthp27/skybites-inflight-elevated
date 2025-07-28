@@ -85,30 +85,50 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - TREAT YOURSELF RIGHT */}
-      <section className="relative py-40 md:py-52 overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <p className="text-lg mb-4">PRIVATE JET CATERING</p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-yellow-400">
-            TREAT YOURSELF RIGHT
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            BECAUSE YOU DESERVE ONLY THE BEST<br />
-            PRIVATE JET VIP CATERING
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" className="bg-transparent border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3">
-              ORDER NOW
-            </Button>
-            <Button variant="default" className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3">
-              VIP MENU
-            </Button>
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <p className="text-sm md:text-base tracking-[0.3em] uppercase text-amber-200/90 font-light">
+              Private Jet Catering
+            </p>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-wide">
+              <span className="text-white">TREAT</span>
+              <span className="text-amber-300"> YOURSELF </span>
+              <span className="text-white">RIGHT</span>
+            </h1>
+            
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl lg:text-2xl font-light tracking-wide text-white/90">
+                Because you deserve only the best
+              </p>
+              <p className="text-base md:text-lg lg:text-xl font-light tracking-[0.2em] uppercase text-amber-200/80">
+                Private Jet VIP Catering
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+              <Button 
+                variant="outline" 
+                className="bg-transparent border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black transition-all duration-300 px-12 py-4 text-base font-medium tracking-wide uppercase rounded-none"
+                asChild
+              >
+                <Link to="/request">Order Now</Link>
+              </Button>
+              <Button 
+                className="bg-amber-400 hover:bg-amber-500 text-black transition-all duration-300 px-12 py-4 text-base font-medium tracking-wide uppercase rounded-none"
+                asChild
+              >
+                <Link to="/menu">VIP Menu</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
