@@ -136,6 +136,41 @@ const HomePage = () => {
       {/* Airport Destinations Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Find Your Airport Section */}
+          <div className="text-center mb-16">
+            <div className="mb-8">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+                <Globe className="w-10 h-10 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12">
+              FIND YOUR AIRPORT
+            </h2>
+            <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white px-8 py-3 mb-12">
+              <ArrowRight className="mr-2 w-4 h-4" />
+            </Button>
+          </div>
+
+          {/* Statistics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 text-center">
+            <div>
+              <h3 className="text-5xl md:text-6xl font-bold text-foreground mb-4">2500</h3>
+              <p className="text-lg font-semibold text-foreground mb-2">AIRPORTS</p>
+              <p className="text-sm text-muted-foreground">where we provide VIP catering for private jets</p>
+            </div>
+            <div>
+              <h3 className="text-5xl md:text-6xl font-bold text-foreground mb-4">250</h3>
+              <p className="text-lg font-semibold text-foreground mb-2">PRIVATE JET</p>
+              <p className="text-sm text-muted-foreground">DELIVERED PER DAY</p>
+            </div>
+            <div>
+              <h3 className="text-5xl md:text-6xl font-bold text-foreground mb-4">10000</h3>
+              <p className="text-lg font-semibold text-foreground mb-2">VIP FA WHO</p>
+              <p className="text-sm text-muted-foreground">TRUST US</p>
+            </div>
+          </div>
+
+          {/* Order Your Private Jet Catering Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight">
               ORDER YOUR<br />
