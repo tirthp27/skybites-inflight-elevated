@@ -8,11 +8,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-gold-luxury to-accent rounded-full flex items-center justify-center">
-                <Plane className="w-4 h-4 text-navy-deep" />
-              </div>
-              <span className="text-xl font-bold">Sky Bites</span>
+            <div className="mb-4">
+              <img 
+                src="/lovable-uploads/ea1ba94e-1e3c-4059-bc7c-d257125aa6f2.png" 
+                alt="Sky Bites" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               Premium inflight catering services for private jets, commercial airlines, and charter flights worldwide.

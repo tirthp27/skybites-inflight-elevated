@@ -21,11 +21,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-navy-deep to-sky-blue rounded-full flex items-center justify-center">
-              <Plane className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-xl font-bold text-navy-deep">Sky Bites</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/ea1ba94e-1e3c-4059-bc7c-d257125aa6f2.png" 
+              alt="Sky Bites" 
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
