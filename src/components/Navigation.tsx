@@ -45,7 +45,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/60dfd7f0-23be-44f7-8a93-0eff1c0c3e43.png" 
               alt="Sky Bites" 
-              className="h-120 w-auto"
+              className="h-60 w-auto"
             />
           </Link>
 
