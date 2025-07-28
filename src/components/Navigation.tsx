@@ -53,8 +53,8 @@ const Navigation = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/airports"
-              className={`text-4xl font-medium transition-colors hover:text-amber-800 ${
-                isActive("/airports") ? "text-amber-800" : "text-white"
+              className={`text-4xl font-medium transition-colors hover:text-amber-400 ${
+                isActive("/airports") ? "text-amber-400" : "text-white"
               }`}
             >
               Airports
