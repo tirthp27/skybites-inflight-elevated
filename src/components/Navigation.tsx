@@ -54,7 +54,7 @@ const Navigation = () => {
             <Link
               to="/airports"
               className={`text-base font-medium transition-colors hover:text-amber-400 ${
-                isActive("/airports") ? "text-amber-400" : "text-white"
+                isActive("/airports") ? "text-amber-800" : "text-white"
               }`}
             >
               Airports
