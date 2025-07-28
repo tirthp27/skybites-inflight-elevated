@@ -85,7 +85,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - TREAT YOURSELF RIGHT */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-40 md:py-52 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -280,32 +280,88 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Chef AI Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-800 to-emerald-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-emerald-900/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Revolutionize<br />
-                Your Inflight Catering<br />
-                with <span className="text-yellow-400">CHEF AI</span>
-              </h2>
-              <p className="text-xl mb-4 font-semibold">AI-GENERATED PRIVATE JET MENUS</p>
-              <p className="text-xl mb-8 font-semibold">CRAFTED IN MINUTES</p>
-              <Button variant="default" className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3">
-                START NOW
-              </Button>
-            </div>
-            <div className="relative">
-              <div className="bg-black rounded-lg p-8 max-w-sm mx-auto">
-                <div className="text-yellow-400 text-center mb-4">
-                  <Star className="w-8 h-8 mx-auto mb-2" />
-                  <p className="text-sm">INNOVATION IN INFLIGHT DINING HAS ARRIVED</p>
+      {/* Request Quote Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Request A Quote
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Get a personalized catering quote for your private jet. Our team will respond within minutes with a tailored proposal for your flight.
+            </p>
+          </div>
+          
+          <Card className="bg-white shadow-xl border-0">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Departure Airport *
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g., LAX, JFK, LHR"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Flight Date *
+                  </label>
+                  <input 
+                    type="date"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
                 </div>
               </div>
-            </div>
-          </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Number of Passengers *
+                  </label>
+                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <option>Select passenger count</option>
+                    <option>1-2 passengers</option>
+                    <option>3-6 passengers</option>
+                    <option>7-12 passengers</option>
+                    <option>13+ passengers</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Contact Email *
+                  </label>
+                  <input 
+                    type="email" 
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Special Requests & Dietary Notes
+                </label>
+                <textarea 
+                  rows={4}
+                  placeholder="Please describe any specific dietary requirements, allergies, preferred cuisines, or special requests..."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                ></textarea>
+              </div>
+              
+              <div className="text-center">
+                <Button variant="default" className="bg-[#8B7355] hover:bg-[#8B7355]/90 text-white px-12 py-3 text-lg">
+                  Get My Quote
+                </Button>
+                <p className="text-sm text-muted-foreground mt-3">
+                  We'll respond within 10 minutes with your personalized quote
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
