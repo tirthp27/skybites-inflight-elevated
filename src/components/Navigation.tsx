@@ -43,7 +43,7 @@ const Navigation = () => {
           {/* Center Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/9e3d1332-b25c-491a-85a6-03fdf48c1ece.png" 
+              src="/lovable-uploads/8e2510df-43f7-4377-8e08-9e8d40789571.png" 
               alt="Sky Bites" 
               className="h-20 w-auto"
             />
