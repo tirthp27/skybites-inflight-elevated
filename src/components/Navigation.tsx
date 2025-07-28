@@ -21,53 +21,58 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Left Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-12">
             <Link
-              to="/"
-              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
-                isActive("/") ? "text-amber-400" : "text-white"
+              to="/airports"
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-amber-400 ${
+                isActive("/airports") ? "text-amber-400" : "text-white/90"
               }`}
             >
-              Home
+              Airport Location
             </Link>
             <Link
               to="/menu"
-              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
-                isActive("/menu") ? "text-amber-400" : "text-white"
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-amber-400 ${
+                isActive("/menu") ? "text-amber-400" : "text-white/90"
               }`}
             >
-              Menu
+              Our Services
             </Link>
-          </nav>
+          </div>
 
           {/* Center Logo */}
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/ea1ba94e-1e3c-4059-bc7c-d257125aa6f2.png" 
-              alt="Sky Bites" 
-              className="h-12 w-auto filter brightness-0 invert"
-            />
+          <Link to="/" className="flex flex-col items-center">
+            <div className="flex items-center justify-center w-16 h-16 mb-1">
+              <img 
+                src="/lovable-uploads/ea1ba94e-1e3c-4059-bc7c-d257125aa6f2.png" 
+                alt="Inflight Chef Delight" 
+                className="h-12 w-auto filter brightness-0 invert opacity-90"
+              />
+            </div>
+            <div className="text-amber-400 text-xs tracking-[0.2em] uppercase font-light">
+              Inflight Chef Delight
+            </div>
           </Link>
 
           {/* Right Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-12">
             <Link
-              to="/airports"
-              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
-                isActive("/airports") ? "text-amber-400" : "text-white"
+              to="/request"
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-amber-400 ${
+                isActive("/request") ? "text-amber-400" : "text-white/90"
               }`}
             >
-              Airports
+              Custom Order
             </Link>
             <Link
               to="/contact"
-              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
-                isActive("/contact") ? "text-amber-400" : "text-white"
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-amber-400 ${
+                isActive("/contact") ? "text-amber-400" : "text-white/90"
               }`}
             >
-              Contact
+              Online Shop
             </Link>
-          </nav>
+          </div>
 
           {/* Mobile menu button */}
           <button
