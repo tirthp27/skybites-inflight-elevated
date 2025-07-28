@@ -17,46 +17,62 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20">
+          {/* Left Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link
+              to="/"
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
+                isActive("/") ? "text-amber-400" : "text-white"
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/menu"
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
+                isActive("/menu") ? "text-amber-400" : "text-white"
+              }`}
+            >
+              Menu
+            </Link>
+          </nav>
+
+          {/* Center Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/ea1ba94e-1e3c-4059-bc7c-d257125aa6f2.png" 
               alt="Sky Bites" 
-              className="h-8 w-auto"
+              className="h-12 w-auto filter brightness-0 invert"
             />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Right Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-sky-blue ${
-                  isActive(item.path) ? "text-sky-blue" : "text-gray-700"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link to="/request">
-              <Button variant="luxury" size="lg">
-                Request Catering
-              </Button>
+            <Link
+              to="/airports"
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
+                isActive("/airports") ? "text-amber-400" : "text-white"
+              }`}
+            >
+              Airports
             </Link>
-          </div>
+            <Link
+              to="/contact"
+              className={`text-sm font-medium transition-colors hover:text-amber-400 ${
+                isActive("/contact") ? "text-amber-400" : "text-white"
+              }`}
+            >
+              Contact
+            </Link>
+          </nav>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-700"
+            className="md:hidden p-2 text-white"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -64,25 +80,30 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 bg-black/80 backdrop-blur-md">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-sky-blue ${
-                    isActive(item.path) ? "text-sky-blue" : "text-gray-700"
+                  className={`text-sm font-medium transition-colors hover:text-amber-400 px-4 ${
+                    isActive(item.path) ? "text-amber-400" : "text-white"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Link to="/request" onClick={() => setIsOpen(false)}>
-                <Button variant="luxury" size="lg" className="w-full">
-                  Request Catering
-                </Button>
-              </Link>
+              <div className="px-4 pt-2">
+                <Link to="/request" onClick={() => setIsOpen(false)}>
+                  <Button 
+                    variant="outline" 
+                    className="w-full bg-transparent border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black"
+                  >
+                    Request Catering
+                  </Button>
+                </Link>
+              </div>
             </nav>
           </div>
         )}
