@@ -266,8 +266,8 @@ const AirportsPage = () => {
             </div>
             
             {/* Bottom row - 3 continents centered */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="lg:col-start-2 lg:col-span-1">
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="hover:shadow-lg transition-shadow cursor-pointer">
                   <CardContent className="p-8 text-center">
                     <div className="text-4xl mb-4">🇪🇺</div>
@@ -277,25 +277,25 @@ const AirportsPage = () => {
                     </div>
                   </CardContent>
                 </Card>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-8 text-center">
+                    <div className="text-4xl mb-4">🇺🇸</div>
+                    <h4 className="text-xl font-bold text-[#B8860B]">NORTH AMERICA</h4>
+                    <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
+                      <ArrowRight className="w-6 h-6 text-white" />
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-8 text-center">
+                    <div className="text-4xl mb-4">🇧🇷</div>
+                    <h4 className="text-xl font-bold text-[#B8860B]">SOUTH AMERICA</h4>
+                    <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
+                      <ArrowRight className="w-6 h-6 text-white" />
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-8 text-center">
-                  <div className="text-4xl mb-4">🇺🇸</div>
-                  <h4 className="text-xl font-bold text-[#B8860B]">NORTH AMERICA</h4>
-                  <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
-                    <ArrowRight className="w-6 h-6 text-white" />
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                <CardContent className="p-8 text-center">
-                  <div className="text-4xl mb-4">🇧🇷</div>
-                  <h4 className="text-xl font-bold text-[#B8860B]">SOUTH AMERICA</h4>
-                  <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
-                    <ArrowRight className="w-6 h-6 text-white" />
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
