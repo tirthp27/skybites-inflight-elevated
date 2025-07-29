@@ -244,13 +244,14 @@ const AirportsPage = () => {
             INFLIGHT CATERER NETWORK
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
             {[
               { name: "AFRICA", icon: "🌍" },
-              { name: "ASIA MIDDLE EAST", icon: "🌏" },
+              { name: "ANTARCTICA", icon: "🐧" },
+              { name: "ASIA", icon: "🌏" },
+              { name: "AUSTRALIA", icon: "🇦🇺" },
               { name: "EUROPE", icon: "🇪🇺" },
               { name: "NORTH AMERICA", icon: "🇺🇸" },
-              { name: "OCEANIA", icon: "🇦🇺" },
               { name: "SOUTH AMERICA", icon: "🇧🇷" }
             ].map((region, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
