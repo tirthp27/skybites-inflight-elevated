@@ -266,24 +266,23 @@ const AirportsPage = () => {
             </div>
             
             {/* Bottom row - 3 continents centered */}
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
-                {[
-                  { name: "EUROPE", icon: "🇪🇺" },
-                  { name: "NORTH AMERICA", icon: "🇺🇸" },
-                  { name: "SOUTH AMERICA", icon: "🇧🇷" }
-                ].map((region, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
-                    <CardContent className="p-8 text-center">
-                      <div className="text-4xl mb-4">{region.icon}</div>
-                      <h4 className="text-xl font-bold text-[#B8860B]">{region.name}</h4>
-                      <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
-                        <ArrowRight className="w-6 h-6 text-white" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div></div> {/* Empty space */}
+              {[
+                { name: "EUROPE", icon: "🇪🇺" },
+                { name: "NORTH AMERICA", icon: "🇺🇸" },
+                { name: "SOUTH AMERICA", icon: "🇧🇷" }
+              ].map((region, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-8 text-center">
+                    <div className="text-4xl mb-4">{region.icon}</div>
+                    <h4 className="text-xl font-bold text-[#B8860B]">{region.name}</h4>
+                    <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
+                      <ArrowRight className="w-6 h-6 text-white" />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
