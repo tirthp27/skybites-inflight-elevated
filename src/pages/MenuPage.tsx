@@ -43,7 +43,7 @@ const MenuPage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/request">
-              <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-navy-deep">
+              <Button variant="outline" size="lg" className="bg-white text-black border-white hover:bg-gray-100 hover:text-black">
                 Create Your Request
               </Button>
             </Link>
