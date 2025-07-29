@@ -266,35 +266,41 @@ const AirportsPage = () => {
             </div>
             
             {/* Bottom row - 3 continents centered */}
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-4xl mb-4">🇪🇺</div>
-                    <h4 className="text-xl font-bold text-[#B8860B]">EUROPE</h4>
-                    <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
-                      <ArrowRight className="w-6 h-6 text-white" />
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-4xl mb-4">🇺🇸</div>
-                    <h4 className="text-xl font-bold text-[#B8860B]">NORTH AMERICA</h4>
-                    <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
-                      <ArrowRight className="w-6 h-6 text-white" />
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-4xl mb-4">🇧🇷</div>
-                    <h4 className="text-xl font-bold text-[#B8860B]">SOUTH AMERICA</h4>
-                    <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
-                      <ArrowRight className="w-6 h-6 text-white" />
-                    </div>
-                  </CardContent>
-                </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="md:col-start-1 lg:col-start-1 lg:col-end-2">
+                <div className="lg:ml-auto lg:max-w-[75%]">
+                  <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                    <CardContent className="p-8 text-center">
+                      <div className="text-4xl mb-4">🇪🇺</div>
+                      <h4 className="text-xl font-bold text-[#B8860B]">EUROPE</h4>
+                      <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
+                        <ArrowRight className="w-6 h-6 text-white" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer lg:col-start-2 lg:col-end-3">
+                <CardContent className="p-8 text-center">
+                  <div className="text-4xl mb-4">🇺🇸</div>
+                  <h4 className="text-xl font-bold text-[#B8860B]">NORTH AMERICA</h4>
+                  <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
+                    <ArrowRight className="w-6 h-6 text-white" />
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="md:col-start-2 lg:col-start-3 lg:col-end-4">
+                <div className="lg:mr-auto lg:max-w-[75%]">
+                  <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                    <CardContent className="p-8 text-center">
+                      <div className="text-4xl mb-4">🇧🇷</div>
+                      <h4 className="text-xl font-bold text-[#B8860B]">SOUTH AMERICA</h4>
+                      <div className="w-12 h-12 bg-[#B8860B] rounded-full mx-auto mt-4 flex items-center justify-center">
+                        <ArrowRight className="w-6 h-6 text-white" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </div>
           </div>
