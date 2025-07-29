@@ -151,6 +151,41 @@ const AirportsPage = () => {
         </div>
       </section>
 
+      {/* Airport Search Section */}
+      <section className="py-20 bg-emerald-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="w-16 h-16 bg-[#B8860B] rounded-full mx-auto mb-8 flex items-center justify-center">
+            <MapPin className="w-8 h-8 text-white" />
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            FIND YOUR AIRPORT
+          </h2>
+          <h3 className="text-2xl font-bold mb-8">
+            FOR JET CATERING SERVICES
+          </h3>
+          
+          <div className="relative max-w-2xl mx-auto mb-8">
+            <Input
+              type="text"
+              placeholder="What's your airport ? (OACI, IATA, City ...)"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full py-4 px-6 text-lg bg-white text-black border-2 border-[#B8860B] rounded-full"
+            />
+            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-muted-foreground" />
+          </div>
+          
+          <p className="text-sm text-white/80 mb-8">
+            Type and press enter on keyboard for search
+          </p>
+          
+          <p className="text-lg font-semibold mb-4">
+            SELECT YOUR AIRPORT IN THE LIST BELOW :
+          </p>
+        </div>
+      </section>
+
       {/* 3-Step Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -196,41 +231,6 @@ const AirportsPage = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Airport Search Section */}
-      <section className="py-20 bg-emerald-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-16 h-16 bg-[#B8860B] rounded-full mx-auto mb-8 flex items-center justify-center">
-            <MapPin className="w-8 h-8 text-white" />
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            FIND YOUR AIRPORT
-          </h2>
-          <h3 className="text-2xl font-bold mb-8">
-            FOR JET CATERING SERVICES
-          </h3>
-          
-          <div className="relative max-w-2xl mx-auto mb-8">
-            <Input
-              type="text"
-              placeholder="What's your airport ? (OACI, IATA, City ...)"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full py-4 px-6 text-lg bg-white text-black border-2 border-[#B8860B] rounded-full"
-            />
-            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-muted-foreground" />
-          </div>
-          
-          <p className="text-sm text-white/80 mb-8">
-            Type and press enter on keyboard for search
-          </p>
-          
-          <p className="text-lg font-semibold mb-4">
-            SELECT YOUR AIRPORT IN THE LIST BELOW :
-          </p>
         </div>
       </section>
 
