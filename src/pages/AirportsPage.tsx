@@ -126,23 +126,27 @@ const AirportsPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Private Jet */}
-      <section className="relative py-20 text-white">
+      <section className="relative min-h-screen flex items-center text-white">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
             backgroundImage: `url('/lovable-uploads/c5ff4d16-9fa0-48d3-b4cc-ab18c531c992.png')` 
           }}
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm text-muted-foreground mb-4">Airport location - Jet Catering</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#B8860B] mb-6 leading-tight">
-            WORLDWIDE VIP PRIVATE JET<br />
-            CATERING
+          <p className="text-sm text-[#B8860B] mb-6 tracking-widest uppercase">Private Jet Catering</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="text-white">WORLDWIDE VIP</span><br />
+            <span className="text-[#B8860B]">PRIVATE JET</span><br />
+            <span className="text-white">CATERING</span>
           </h1>
-          <p className="text-lg text-muted-foreground mb-12">
-            We're available 24/7 for catering order or quote request.
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
+            Because you deserve only the best
+          </p>
+          <p className="text-sm text-[#B8860B] mb-12 tracking-widest uppercase">
+            Private Jet VIP Catering
           </p>
         </div>
       </section>
