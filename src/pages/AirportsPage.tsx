@@ -125,15 +125,14 @@ const AirportsPage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Private Jet */}
-      <section className="relative py-20 text-white">
+      {/* Hero Section with World Map */}
+      <section className="relative py-20 bg-gradient-to-b from-slate-100 to-white">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{ 
-            backgroundImage: `url('/lovable-uploads/c5ff4d16-9fa0-48d3-b4cc-ab18c531c992.png')` 
+            backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23f1f5f9"/><circle cx="200" cy="150" r="3" fill="%23B8860B"/><circle cx="400" cy="200" r="3" fill="%23B8860B"/><circle cx="600" cy="180" r="3" fill="%23B8860B"/><circle cx="800" cy="220" r="3" fill="%23B8860B"/><circle cx="1000" cy="160" r="3" fill="%23B8860B"/></svg>')` 
           }}
         />
-        <div className="absolute inset-0 bg-black/40" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-muted-foreground mb-4">Airport location - Jet Catering</p>
