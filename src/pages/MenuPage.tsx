@@ -7,7 +7,7 @@ const MenuPage = () => {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <div className="relative text-white">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/lovable-uploads/3743fd0c-5ef0-4baf-b3a9-d2926fad1f3b.png)'}}></div>
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/lovable-uploads/bbc656fc-e1ff-4451-a517-706a2de61e7c.png)'}}></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
           <div className="mb-8">
