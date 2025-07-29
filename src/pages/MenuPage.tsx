@@ -9,7 +9,7 @@ const MenuPage = () => {
       <div className="relative text-white">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/lovable-uploads/3743fd0c-5ef0-4baf-b3a9-d2926fad1f3b.png)'}}></div>
         <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative max-w-6xl mx-auto px-4 py-20 text-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
           <div className="mb-8">
             <div className="w-12 h-12 mx-auto mb-4 border-2 border-gold-luxury rounded-full flex items-center justify-center">
               <div className="w-6 h-6 bg-gold-luxury rounded-full"></div>
