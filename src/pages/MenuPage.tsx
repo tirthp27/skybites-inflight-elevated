@@ -6,7 +6,7 @@ const MenuPage = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 text-white">
+      <div className="relative bg-cover bg-center bg-no-repeat text-white" style={{backgroundImage: 'url(/lovable-uploads/ea1ba94e-1e3c-4059-bc7c-d257125aa6f2.png)'}}>
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-6xl mx-auto px-4 py-20 text-center">
           <div className="mb-8">
