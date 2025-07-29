@@ -4,7 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 const MenuPage = () => {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative text-white">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/lovable-uploads/3743fd0c-5ef0-4baf-b3a9-d2926fad1f3b.png)'}}></div>
