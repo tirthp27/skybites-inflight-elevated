@@ -32,7 +32,7 @@ const Navigation = () => {
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
     { name: "Airports", path: "/airports" },
-    { name: "Contact", path: "/contact" },
+    { name: "Order", path: "/request" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -82,12 +82,12 @@ const Navigation = () => {
               Airports
             </Link>
             <Link
-              to="/contact"
+              to="/request"
               className={`text-sm font-medium transition-colors hover:text-amber-400 ${
-                isActive("/contact") ? "text-amber-400" : "text-white"
+                isActive("/request") ? "text-amber-400" : "text-white"
               }`}
             >
-              Contact
+              Order
             </Link>
           </nav>
 
