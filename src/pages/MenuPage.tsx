@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin } from "lucide-react";
 
 const MenuPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'G-03V4DHDLEM', {
+        page_title: 'Menu - Sky Bites',
+        page_location: window.location.href
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

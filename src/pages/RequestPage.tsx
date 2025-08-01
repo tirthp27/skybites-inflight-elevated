@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,6 +11,15 @@ import { Plane, Clock, Users, Upload } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const RequestPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'G-03V4DHDLEM', {
+        page_title: 'Request Catering - Sky Bites',
+        page_location: window.location.href
+      });
+    }
+  }, []);
+
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({

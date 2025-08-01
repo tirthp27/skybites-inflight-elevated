@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -81,6 +82,16 @@ const HomePage = () => {
       text: "At Jet Aviation, we have outsourced our private jet catering orders to Inflight Chef Delight. Their network and tools make them much more efficient and effective than our former in-house catering department. This has saved us money and has allowed us to greatly improve the quality of the meals provided on board our aircraft."
     }
   ];
+
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'G-03V4DHDLEM', {
+        page_title: 'Home - Sky Bites',
+        page_location: window.location.href
+      });
+    }
+  }, []);
 
   return (
     <div className="min-h-screen">

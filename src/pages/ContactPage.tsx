@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MessageCircle, MapPin, Clock } from "lucide-react";
 
 const ContactPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'G-03V4DHDLEM', {
+        page_title: 'Contact - Sky Bites',
+        page_location: window.location.href
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen pt-16">
       {/* Header */}
