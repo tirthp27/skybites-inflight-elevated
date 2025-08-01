@@ -2,12 +2,18 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Plane } from "lucide-react";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
+  const { trackEvent } = useAnalytics();
+
+  const handleNavClick = (pageName: string) => {
+    trackEvent('navigation_click', { page: pageName, from_page: location.pathname });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +52,7 @@ const Navigation = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
+              onClick={() => handleNavClick('Home')}
               className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/") ? "text-amber-400" : "text-white"
               }`}
@@ -54,6 +61,7 @@ const Navigation = () => {
             </Link>
             <Link
               to="/menu"
+              onClick={() => handleNavClick('Menu')}
               className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/menu") ? "text-amber-400" : "text-white"
               }`}
@@ -75,6 +83,7 @@ const Navigation = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/airports"
+              onClick={() => handleNavClick('Airports')}
               className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/airports") ? "text-amber-400" : "text-white"
               }`}
@@ -83,6 +92,7 @@ const Navigation = () => {
             </Link>
             <Link
               to="/request"
+              onClick={() => handleNavClick('Order')}
               className={`text-sm font-medium transition-colors hover:text-amber-400 ${
                 isActive("/request") ? "text-amber-400" : "text-white"
               }`}

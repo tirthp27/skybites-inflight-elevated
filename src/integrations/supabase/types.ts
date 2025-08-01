@@ -14,6 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics: {
+        Row: {
+          browser: string | null
+          city: string | null
+          country: string | null
+          created_at: string
+          device_type: string | null
+          duration_seconds: number | null
+          event_data: Json | null
+          event_type: string | null
+          id: string
+          ip_address: string | null
+          os: string | null
+          page_path: string
+          page_title: string | null
+          referrer: string | null
+          screen_resolution: string | null
+          session_id: string
+          timestamp: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          browser?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          device_type?: string | null
+          duration_seconds?: number | null
+          event_data?: Json | null
+          event_type?: string | null
+          id?: string
+          ip_address?: string | null
+          os?: string | null
+          page_path: string
+          page_title?: string | null
+          referrer?: string | null
+          screen_resolution?: string | null
+          session_id: string
+          timestamp?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          browser?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          device_type?: string | null
+          duration_seconds?: number | null
+          event_data?: Json | null
+          event_type?: string | null
+          id?: string
+          ip_address?: string | null
+          os?: string | null
+          page_path?: string
+          page_title?: string | null
+          referrer?: string | null
+          screen_resolution?: string | null
+          session_id?: string
+          timestamp?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       catering_requests: {
         Row: {
           catering_preferences: string[] | null
