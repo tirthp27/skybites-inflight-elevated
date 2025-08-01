@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Plane, Clock, Users, Upload } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const RequestPage = () => {
   const { toast } = useToast();
@@ -55,8 +56,27 @@ const RequestPage = () => {
     setIsLoading(true);
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Save to Supabase
+      const { error } = await supabase
+        .from('catering_requests')
+        .insert({
+          departure_airport: formData.departureAirport,
+          fbo: formData.fbo,
+          flight_date: formData.flightDate,
+          flight_time: formData.flightTime,
+          passenger_count: formData.passengerCount,
+          catering_preferences: formData.cateringPreferences,
+          special_requests: formData.specialRequests,
+          client_name: formData.clientName,
+          email: formData.email,
+          phone: formData.phone,
+          response_time: formData.responseTime,
+          webhook_url: formData.webhookUrl || null,
+        });
+
+      if (error) {
+        throw error;
+      }
       
       // If webhook URL is provided, trigger Zapier
       if (formData.webhookUrl) {
@@ -100,6 +120,7 @@ const RequestPage = () => {
       });
 
     } catch (error) {
+      console.error("Error submitting request:", error);
       toast({
         title: "Error",
         description: "There was an issue submitting your request. Please try again.",
