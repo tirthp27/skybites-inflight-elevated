@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      catering_requests: {
+        Row: {
+          catering_preferences: string[] | null
+          client_name: string
+          created_at: string
+          departure_airport: string
+          email: string
+          fbo: string | null
+          flight_date: string
+          flight_time: string
+          id: string
+          passenger_count: string
+          phone: string
+          response_time: string
+          special_requests: string | null
+          status: string | null
+          updated_at: string
+          webhook_url: string | null
+        }
+        Insert: {
+          catering_preferences?: string[] | null
+          client_name: string
+          created_at?: string
+          departure_airport: string
+          email: string
+          fbo?: string | null
+          flight_date: string
+          flight_time: string
+          id?: string
+          passenger_count: string
+          phone: string
+          response_time: string
+          special_requests?: string | null
+          status?: string | null
+          updated_at?: string
+          webhook_url?: string | null
+        }
+        Update: {
+          catering_preferences?: string[] | null
+          client_name?: string
+          created_at?: string
+          departure_airport?: string
+          email?: string
+          fbo?: string | null
+          flight_date?: string
+          flight_time?: string
+          id?: string
+          passenger_count?: string
+          phone?: string
+          response_time?: string
+          special_requests?: string | null
+          status?: string | null
+          updated_at?: string
+          webhook_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
