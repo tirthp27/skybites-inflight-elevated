@@ -11,14 +11,8 @@ import RequestPage from "./pages/RequestPage";
 import AirportsPage from "./pages/AirportsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
-import { useAnalytics } from "./hooks/useAnalytics";
 
 const queryClient = new QueryClient();
-
-const AnalyticsWrapper = () => {
-  useAnalytics();
-  return null;
-};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -26,7 +20,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AnalyticsWrapper />
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-1">

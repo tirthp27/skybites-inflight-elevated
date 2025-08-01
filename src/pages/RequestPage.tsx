@@ -9,11 +9,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Plane, Clock, Users, Upload } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useAnalytics } from "@/hooks/useAnalytics";
 
 const RequestPage = () => {
   const { toast } = useToast();
-  const { trackEvent } = useAnalytics();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     departureAirport: "",
@@ -58,15 +56,6 @@ const RequestPage = () => {
     setIsLoading(true);
 
     try {
-      // Track form submission attempt
-      await trackEvent('catering_request_submit_attempt', {
-        passenger_count: formData.passengerCount,
-        catering_preferences_count: formData.cateringPreferences.length,
-        has_special_requests: !!formData.specialRequests,
-        response_time: formData.responseTime,
-        has_webhook: !!formData.webhookUrl,
-      });
-
       // Save to Supabase
       const { error } = await supabase
         .from('catering_requests')
@@ -88,12 +77,6 @@ const RequestPage = () => {
       if (error) {
         throw error;
       }
-
-      // Track successful submission
-      await trackEvent('catering_request_submit_success', {
-        passenger_count: formData.passengerCount,
-        response_time: formData.responseTime,
-      });
       
       // If webhook URL is provided, trigger Zapier
       if (formData.webhookUrl) {
