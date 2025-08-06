@@ -214,7 +214,9 @@ const AirportVendorsPage = () => {
                   </div>
                   <div className="mt-4 flex gap-2">
                     <Button size="sm">Request Quote</Button>
-                    <Button variant="outline" size="sm">View Details</Button>
+                    <Button variant="outline" size="sm" asChild>
+                      <Link to="/menu">View Menu</Link>
+                    </Button>
                   </div>
                 </div>
               </CardContent>
