@@ -22,6 +22,7 @@ interface Vendor {
   specialties: string[];
   availability: string;
   description: string;
+  menuSlug: string;
 }
 
 const AirportVendorsPage = () => {
@@ -57,7 +58,8 @@ const AirportVendorsPage = () => {
         distance: "0.2 miles",
         specialties: ["Gourmet meals", "Dietary restrictions", "Executive catering"],
         availability: "24/7",
-        description: "Premium catering service specializing in high-end aviation meals with international cuisine options."
+        description: "Premium catering service specializing in high-end aviation meals with international cuisine options.",
+        menuSlug: "sky-chef-premium"
       },
       {
         id: "2", 
@@ -74,7 +76,8 @@ const AirportVendorsPage = () => {
         distance: "0.5 miles",
         specialties: ["Quick turnaround", "Fresh ingredients", "Custom menus"],
         availability: "6AM - 10PM",
-        description: "Fast and reliable catering service with fresh, locally-sourced ingredients."
+        description: "Fast and reliable catering service with fresh, locally-sourced ingredients.",
+        menuSlug: "airport-gourmet-express"
       }
     ];
     setVendors(mockVendors);
@@ -215,7 +218,7 @@ const AirportVendorsPage = () => {
                   <div className="mt-4 flex gap-2">
                     <Button size="sm">Request Quote</Button>
                     <Button variant="outline" size="sm" asChild>
-                      <Link to="/menu">View Menu</Link>
+                      <Link to={`/menu/${vendor.menuSlug}`}>View Menu</Link>
                     </Button>
                   </div>
                 </div>
