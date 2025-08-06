@@ -15,6 +15,7 @@ interface Vendor {
     phone?: string;
     email?: string;
     website?: string;
+    address?: string;
   };
   location: string;
   distance: string;
@@ -49,7 +50,8 @@ const AirportVendorsPage = () => {
         contact: {
           phone: "(555) 123-4567",
           email: "orders@skychef.com",
-          website: "www.skychef.com"
+          website: "www.skychef.com",
+          address: "123 Airport Terminal Blvd, Las Vegas, NV 89119"
         },
         location: "Terminal Building",
         distance: "0.2 miles",
@@ -65,7 +67,8 @@ const AirportVendorsPage = () => {
         rating: 4.5,
         contact: {
           phone: "(555) 987-6543",
-          email: "info@airportgourmet.com"
+          email: "info@airportgourmet.com",
+          address: "456 Cargo Way, Las Vegas, NV 89119"
         },
         location: "Cargo Area",
         distance: "0.5 miles",
@@ -200,6 +203,12 @@ const AirportVendorsPage = () => {
                       <div className="flex items-center gap-1">
                         <Mail className="h-3 w-3" />
                         <span>{vendor.contact.email}</span>
+                      </div>
+                    )}
+                    {vendor.contact.address && (
+                      <div className="flex items-center gap-1">
+                        <MapPin className="h-3 w-3" />
+                        <span>{vendor.contact.address}</span>
                       </div>
                     )}
                   </div>
