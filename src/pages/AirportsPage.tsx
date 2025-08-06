@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -337,11 +338,15 @@ const AirportsPage = () => {
                     <h3 className="text-lg font-bold text-[#B8860B] mb-4">{region}</h3>
                     <div className="space-y-2">
                       {airports.slice(0, 12).map((airport) => (
-                        <div key={airport.code} className="flex justify-between items-center text-sm hover:bg-muted/50 p-2 rounded transition-colors">
-                          <span className="font-medium">{airport.code}</span>
+                        <Link 
+                          key={airport.code} 
+                          to={`/airports/${airport.code}`}
+                          className="flex justify-between items-center text-sm hover:bg-muted/50 p-2 rounded transition-colors cursor-pointer group"
+                        >
+                          <span className="font-medium group-hover:text-primary">{airport.code}</span>
                           <span className="text-muted-foreground text-xs">{airport.city}</span>
-                          <ArrowRight className="w-3 h-3 text-[#B8860B]" />
-                        </div>
+                          <ArrowRight className="w-3 h-3 text-[#B8860B] group-hover:translate-x-1 transition-transform" />
+                        </Link>
                       ))}
                     </div>
                   </div>

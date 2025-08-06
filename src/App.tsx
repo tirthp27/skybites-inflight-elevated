@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
 import RequestPage from "./pages/RequestPage";
 import AirportsPage from "./pages/AirportsPage";
+import AirportVendorsPage from "./pages/AirportVendorsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +29,7 @@ const App = () => (
               <Route path="/menu" element={<MenuPage />} />
               <Route path="/request" element={<RequestPage />} />
               <Route path="/airports" element={<AirportsPage />} />
+              <Route path="/airports/:airportCode" element={<AirportVendorsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
